@@ -1,0 +1,44 @@
+CREATE TABLE users(
+
+id INT(11) NOT NULL,
+username VARCHAR(50) NOT NULL,
+password VARCHAR(100) NOT NULL,
+nombre VARCHAR(50) NOT NULL,
+apellido VARCHAR(50) NOT NULL,
+documento INT(50) NOT NULL
+);
+
+ALTER TABLE users
+   ADD PRIMARY KEY (id);
+
+ALTER TABLE users
+   MODIFY id INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+CREATE TABLE articulos (
+    id INT(11) NOT NULL,
+    title VARCHAR(45) NOT NULL,
+    descrip TEXT,
+    hora TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    users_id INT(11),
+    CONSTRAINT fk_users_id FOREIGN KEY(users_id) REFERENCES users(id)
+);
+
+ALTER TABLE articulos
+   ADD PRIMARY KEY (id);
+
+ALTER TABLE articulos
+      MODIFY id INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;  
+
+
+ CREATE TABLE mensajes (
+     id INT(11) NOT NULL,
+     nombre VARCHAR(250) NOT NULL,
+     correo VARCHAR(255) NOT NULL,
+     description TEXT
+ );
+
+ ALTER TABLE mensajes 
+       ADD PRIMARY KEY(id);
+
+ALTER TABLE mensajes 
+      MODIFY id(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;             
